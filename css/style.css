@@ -55,26 +55,46 @@ a{
 }
 
 @media only screen and (max-width: 768px) {
-    .img-icone {
-        width: 100%; /* Evita 200% (problema de overflow) */
-        max-width: 100%;
+    /* Container principal (seção) - Flexbox column por padrão */
+    .principal {
+        display: flex;
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center; /* Centraliza horizontalmente */
+        justify-content: center; /* Centraliza verticalmente (opcional) */
+        margin: 1em 10%; /* Reduzi a margem inferior de 50% para evitar scroll excessivo */
+        text-align: center; /* Garante que o texto também fique centralizado */
     }
-    .txt-icone {
-        font-size: clamp(1rem, 4vw, 1.5rem); /* Escala responsiva */
-    }
+
+    /* Container de conteúdo - Flexbox para organizar internamente */
     .conteudo {
         background-color: white;
         padding: 1em;
-        margin: 2em auto; /* Centraliza */
+        margin-top: 2em;
         border-radius: 10px;
-        width: 90%; /* Melhor que 130% */
+        width: 90%; /* Mais seguro que 130% (evita overflow) */
+        max-width: 100%; /* Garante que não ultrapasse a tela */
+        display: flex;
+        flex-direction: column;
+        gap: 1em; /* Espaçamento entre elementos filhos */
     }
-    .principal {
-        text-align: center;
-        margin: 1% 10% 50% 10%; /* top right bottom left */
+
+    /* Imagens e ícones - Flexbox para alinhamento */
+    .img-icone {
+        width: 100%; /* Não usa 200% (causaria overflow) */
+        max-width: 200px; /* Limita o tamanho máximo */
+        margin: 0 auto; /* Centraliza */
     }
+
+    /* Texto - Flexbox não é necessário aqui, mas pode ajudar em layouts complexos */
+    .txt-icone {
+        font-size: clamp(1rem, 4vw, 1.5rem); /* Escala responsiva */
+    }
+
+    /* Imagem de perfil - Flexbox para alinhamento fácil */
     .img-perfil {
         width: 30%;
+        max-width: 150px; /* Evita que fique muito grande em telas grandes */
         border-radius: 50%;
+        margin: 0 auto; /* Centraliza */
     }
 }
