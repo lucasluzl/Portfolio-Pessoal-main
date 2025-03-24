@@ -54,30 +54,27 @@ a{
     font-size: 200% !important;
 }
 
-@midia(min-width:200px) and (max-whidth 768px){
-    .img-icone{
-        width: 200% !important;
+@media only screen and (max-width: 768px) {
+    .img-icone {
+        width: 100%; /* Evita 200% (problema de overflow) */
+        max-width: 100%;
     }
-    .txt-icone{
-        font-size: 220% !important;
+    .txt-icone {
+        font-size: clamp(1rem, 4vw, 1.5rem); /* Escala responsiva */
     }
-    .conteudo{
-        background-color: white !important;
-        padding: 1em !important;
-        margin-top: 2em !important;
-        border-radius: 10px !important;
-        width: 130%;
-}
-.principal{
-    text-align: center;
-    margin-left:10% !important;
-    margin-right:25% !important;
-    margin-top:1% !important;
-    margin-bottom:50% !important;
-
-}
-.img-perfil{
-    width: 30% !important;
-    border-radius: 50% !important;
-}
+    .conteudo {
+        background-color: white;
+        padding: 1em;
+        margin: 2em auto; /* Centraliza */
+        border-radius: 10px;
+        width: 90%; /* Melhor que 130% */
+    }
+    .principal {
+        text-align: center;
+        margin: 1% 10% 50% 10%; /* top right bottom left */
+    }
+    .img-perfil {
+        width: 30%;
+        border-radius: 50%;
+    }
 }
